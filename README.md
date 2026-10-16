@@ -5,7 +5,7 @@
 > - **Endpoint:** `https://eigenheim-invest.de/mcp/` (Streamable HTTP)
 > - **Auth:** none – no API key, no login
 > - **Works with:** Claude (Desktop, Code, Web), ChatGPT (Developer Mode / Connectors), OpenAI Codex, Cursor, VS Code
-> - **MCP Registry ID:** `io.github.magicSEO/eigenheim-mcp` ([official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.magicSEO/eigenheim-mcp))
+> - **MCP Registry ID:** `io.github.magicSEO/eigenheim-mcp` ([official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers/io.github.magicSEO%2Feigenheim-mcp/versions/latest))
 > - **Live data page:** [eigenheim-invest.de/immobilienpreise-berlin/](https://eigenheim-invest.de/immobilienpreise-berlin/)
 
 ![Eigenheim Invest Market MCP](./assets/banner.jpg)
