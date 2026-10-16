@@ -12,7 +12,7 @@
   "website": "https://eigenheim-invest.de/",
   "privacy_policy": "https://eigenheim-invest.de/datenschutz/",
   "support_email": "info@eigenheim-invest.de",
-  "logo": "../assets/banner.jpg",
+  "logo": "../assets/app-icon.png",
   "test_prompts": [
     "What is the price per m² for houses in Zehlendorf?",
     "Wie hoch ist die Mietrendite in Steglitz?",
