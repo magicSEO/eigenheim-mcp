@@ -1,0 +1,179 @@
+# Eigenheim Invest – Berlin Real Estate Market MCP
+
+> **TL;DR** – A free, public, read-only MCP server with live Berlin property prices (€/m² for apartments and houses), rental yields, 2026 standard land values (Bodenrichtwerte), population forecast 2040, official notary transaction data and current listings from Eigenheim Invest.
+>
+> - **Endpoint:** `https://eigenheim-invest.de/mcp/` (Streamable HTTP)
+> - **Auth:** none – no API key, no login
+> - **Works with:** Claude (Desktop, Code, Web), ChatGPT (Developer Mode / Connectors), OpenAI Codex, Cursor, VS Code
+> - **Live data page:** [eigenheim-invest.de/immobilienpreise-berlin/](https://eigenheim-invest.de/immobilienpreise-berlin/)
+
+![Eigenheim Invest Market MCP](./assets/banner.jpg)
+
+---
+
+## Contents
+
+1. [Quick start](#quick-start)
+2. [Screenshots](#screenshots)
+3. [What can you ask?](#what-can-you-ask)
+4. [Available tools](#available-tools)
+5. [Data sources](#data-sources)
+6. [Privacy & usage](#privacy--usage)
+7. [About](#about)
+
+---
+
+## Quick start
+
+### Claude Code
+
+```bash
+claude mcp add --transport http eigenheim https://eigenheim-invest.de/mcp/
+```
+
+### Claude Desktop / Claude.ai
+
+Settings → **Connectors** → **Add custom connector**
+
+- Name: `Eigenheim Invest Market`
+- URL: `https://eigenheim-invest.de/mcp/`
+
+### OpenAI Codex CLI
+
+```bash
+codex mcp add eigenheim --url https://eigenheim-invest.de/mcp/
+```
+
+or in `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.eigenheim]
+url = "https://eigenheim-invest.de/mcp/"
+```
+
+### ChatGPT (Developer Mode / Connectors)
+
+1. Settings → **Apps & Connectors** → **Advanced settings** → enable **Developer mode**.
+2. **Create connector**:
+   - Name: `Eigenheim Invest Market`
+   - MCP Server URL: `https://eigenheim-invest.de/mcp/`
+   - Authentication: **No authentication**
+3. In a new chat, select the connector via **+ → Developer mode** and ask your question.
+
+### Cursor (`.cursor/mcp.json`)
+
+```json
+{
+  "mcpServers": {
+    "eigenheim": { "url": "https://eigenheim-invest.de/mcp/" }
+  }
+}
+```
+
+### VS Code (`.vscode/mcp.json`)
+
+```json
+{
+  "servers": {
+    "eigenheim": { "type": "http", "url": "https://eigenheim-invest.de/mcp/" }
+  }
+}
+```
+
+> Tip: Use the URL **with** trailing slash (`/mcp/`). Without it the server redirects, which some clients do not follow.
+
+---
+
+## Screenshots
+
+Real responses from the live server (captured 16 Oct 2026):
+
+| Prices | Rental yield | Land values |
+|---|---|---|
+| ![Area prices](./assets/example-area-prices.png) | ![Rental yield](./assets/example-rental-yield.png) | ![Land values](./assets/example-land-values.png) |
+| `get_area_prices` Zehlendorf | `calculate_rental_yield` Steglitz | `get_bodenrichtwerte` Dahlem |
+
+---
+
+## What can you ask?
+
+Ask in **English or German** – the assistant picks the right tool.
+
+### Prices & trends
+- *"What is the average price per m² for apartments and houses in Zehlendorf compared to Berlin?"*
+- *„Was kostet ein Quadratmeter in Prenzlauer Berg aktuell?"*
+- *"Which Berlin neighbourhood is the most expensive for apartments right now?"*
+
+### Rental yield & investment
+- *"Calculate the gross rental yield and price multiplier for an apartment in Steglitz."*
+- *„Lohnt sich eine Wohnung in Neukölln als Kapitalanlage? Rechne mit 5.000 €/m² und 14 € Miete."*
+
+### Land values (Bodenrichtwerte 2026)
+- *"What are the 2026 standard land values in Dahlem and Nikolassee?"*
+- *„Wie hoch ist der Bodenrichtwert in Wannsee?"*
+
+### Market & demographics
+- *"How many notarised property sales were there in Berlin in H1 2026?"*
+- *„Welche Bezirke wachsen laut Senatsprognose bis 2040 am stärksten?"*
+
+### Listings
+- *"Are there houses for sale in Berlin Southwest or Falkensee?"*
+- *„Zeig mir Wohnungen unter 600.000 € mit mindestens 3 Zimmern."*
+
+### Guides
+- *"What are the closing costs (Kaufnebenkosten) when buying in Berlin?"*
+- *„Was muss ich beim Verkauf einer geerbten Immobilie beachten?"*
+
+---
+
+## Available tools
+
+| Tool | What it returns | Inputs |
+|---|---|---|
+| `get_area_prices` | Current €/m² for apartments & houses, trend, Berlin comparison | `area` |
+| `get_market_overview` | Berlin-wide KPIs: prices, rents, notary transactions | – |
+| `calculate_rental_yield` | Gross yield & price multiplier | `area` or own `price_per_sqm` / `rent_per_sqm` |
+| `get_bodenrichtwerte` | 2026 land values for 96 Berlin localities | `query` (optional) |
+| `get_population_forecast` | Population forecast 2024–2040 per district | – |
+| `search_properties` | Current listings (no street addresses) | type, location, price, rooms, area, limit |
+| `get_property_details` | Public exposé details + link | `slug` |
+| `search_guides` | Editorial guides with links | `query`, `limit` |
+
+All tools are **read-only**. Every answer includes source, date and a link to the matching page on eigenheim-invest.de.
+
+---
+
+## Data sources
+
+- **Asking prices:** Rankimmo, updated daily (offer data, not notarised prices)
+- **Rents:** IBB Wohnungsmarktbericht 2025
+- **Population forecast:** Senatsverwaltung Berlin, Bevölkerungsprognose 2024–2040
+- **Notary transactions:** Gutachterausschuss Berlin, market report H1 2026
+- **Land values:** Bodenrichtwerte 2026
+- **Listings:** Eigenheim Invest (current offers)
+
+Methodology: [eigenheim-invest.de/immobilienpreise-berlin/#datenquellen](https://eigenheim-invest.de/immobilienpreise-berlin/#datenquellen)
+
+---
+
+## Privacy & usage
+
+- No API key, no tracking of prompts, no personal data.
+- Listings show only public marketing information – no exact addresses, no seller data.
+- Free for personal and commercial use. Please cite *Eigenheim Invest* with a link when publishing figures.
+- Values are market indicators, not a valuation. For a property-specific value use the [free valuation](https://eigenheim-invest.de/immobilienbewertung/).
+
+---
+
+## About
+
+**Eigenheim Invest** is a real estate agency for Berlin Southwest and the surrounding Brandenburg area (Zehlendorf, Dahlem, Nikolassee, Schlachtensee, Wannsee, Kladow, Falkensee, Teltow, Stahnsdorf, Kleinmachnow, Michendorf).
+
+- Website: [eigenheim-invest.de](https://eigenheim-invest.de/)
+- **Berlin property prices by district:** [eigenheim-invest.de/immobilienpreise-berlin/](https://eigenheim-invest.de/immobilienpreise-berlin/)
+- Free valuation: [eigenheim-invest.de/immobilienbewertung/](https://eigenheim-invest.de/immobilienbewertung/)
+- Contact: info@eigenheim-invest.de
+
+## License
+
+Documentation: CC BY 4.0. Data remains property of the respective sources.
