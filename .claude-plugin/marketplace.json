@@ -1,0 +1,15 @@
+{
+  "name": "eigenheim-invest",
+  "description": "Berlin real estate market data plugins from Eigenheim Invest.",
+  "owner": {
+    "name": "Eigenheim Invest",
+    "url": "https://eigenheim-invest.de/"
+  },
+  "plugins": [
+    {
+      "name": "eigenheim-market",
+      "source": "./",
+      "description": "Berlin real estate market data (prices, rental yields, land values, listings) via a read-only remote MCP server."
+    }
+  ]
+}
