@@ -32,6 +32,12 @@
 claude mcp add --transport http eigenheim https://eigenheim-invest.de/mcp/
 ```
 
+Or install it as a Claude Code plugin:
+
+```bash
+/plugin install eigenheim-market --marketplace magicSEO/eigenheim-mcp
+```
+
 ### Claude Desktop / Claude.ai
 
 Settings → **Connectors** → **Add custom connector**
