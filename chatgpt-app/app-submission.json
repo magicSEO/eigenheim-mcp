@@ -1,0 +1,23 @@
+{
+  "name": "Berlin Real Estate Market | Eigenheim Invest",
+  "short_description": "Live Berlin €/m² property prices, rental yields, land values and listings by Eigenheim Invest.",
+  "long_description": "Live real estate market data for Berlin and surrounding towns: apartment and house prices per m² for all 12 districts and 32 localities, gross rental yields, 2026 standard land values (Bodenrichtwerte), population forecast to 2040, official notary transaction figures and current listings from Berlin broker Eigenheim Invest. Read-only, no login.",
+  "category": "Real Estate",
+  "mcp_server": {
+    "url": "https://eigenheim-invest.de/mcp/",
+    "transport": "streamable-http",
+    "authentication": "none"
+  },
+  "tools_read_only": true,
+  "website": "https://eigenheim-invest.de/",
+  "privacy_policy": "https://eigenheim-invest.de/datenschutz/",
+  "support_email": "info@eigenheim-invest.de",
+  "logo": "../assets/banner.jpg",
+  "test_prompts": [
+    "What is the price per m² for houses in Zehlendorf?",
+    "Wie hoch ist die Mietrendite in Steglitz?",
+    "Which Berlin district is the most expensive for apartments?",
+    "Bodenrichtwert Dahlem 2026?",
+    "Show me houses for sale in Falkensee."
+  ]
+}
