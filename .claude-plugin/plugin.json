@@ -1,0 +1,10 @@
+{
+  "name": "eigenheim-market",
+  "version": "0.1.1",
+  "description": "Berlin real estate market data for Claude: daily price per m² by locality, rental yields, land values (Bodenrichtwerte), market overview, population forecast and active listings. Read-only, no login.",
+  "author": { "name": "Eigenheim Invest", "url": "https://eigenheim-invest.de/" },
+  "homepage": "https://eigenheim-invest.de/immobilienpreise-berlin/",
+  "repository": "https://github.com/magicSEO/eigenheim-mcp",
+  "license": "CC-BY-4.0",
+  "keywords": ["mcp", "real-estate", "berlin", "market-data", "property-prices"]
+}
