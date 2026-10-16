@@ -117,6 +117,7 @@ Ask in **English or German** – the assistant picks the right tool.
 
 ### Market & demographics
 - *"How many notarised property sales were there in Berlin in H1 2026?"*
+- *"Which Berlin localities have the highest and lowest apartment prices right now?"*
 - *„Welche Bezirke wachsen laut Senatsprognose bis 2040 am stärksten?"*
 
 ### Listings
@@ -134,11 +135,11 @@ Ask in **English or German** – the assistant picks the right tool.
 | Tool | What it returns | Inputs |
 |---|---|---|
 | `get_area_prices` | Current €/m² for apartments & houses, trend, Berlin comparison | `area` |
-| `get_market_overview` | Berlin-wide KPIs: prices, rents, notary transactions | – |
+| `get_market_overview` | Berlin-wide KPIs: prices, rents, notary transactions + price ranking of all 32 localities | – |
 | `calculate_rental_yield` | Gross yield & price multiplier | `area` or own `price_per_sqm` / `rent_per_sqm` |
 | `get_bodenrichtwerte` | 2026 land values for 96 Berlin localities | `query` (optional) |
 | `get_population_forecast` | Population forecast 2024–2040 per district | – |
-| `search_properties` | Current listings (no street addresses) | type, location, price, rooms, area, limit |
+| `search_properties` | Current **active** listings (no street addresses) | type, location, price, rooms, area, limit |
 | `get_property_details` | Public exposé details + link | `slug` |
 | `search_guides` | Editorial guides with links | `query`, `limit` |
 
@@ -153,7 +154,7 @@ All tools are **read-only**. Every answer includes source, date and a link to th
 - **Population forecast:** Senatsverwaltung Berlin, Bevölkerungsprognose 2024–2040
 - **Notary transactions:** Gutachterausschuss Berlin, market report H1 2026
 - **Land values:** Bodenrichtwerte 2026
-- **Listings:** Eigenheim Invest (current offers)
+- **Listings:** Eigenheim Invest (current active offers)
 
 Methodology: [eigenheim-invest.de/immobilienpreise-berlin/#datenquellen](https://eigenheim-invest.de/immobilienpreise-berlin/#datenquellen)
 
