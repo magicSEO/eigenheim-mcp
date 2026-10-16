@@ -4,7 +4,7 @@
 >
 > - **Endpoint:** `https://eigenheim-invest.de/mcp/` (Streamable HTTP)
 > - **Auth:** none – no API key, no login
-> - **Works with:** Claude (Desktop, Code, Web), ChatGPT (Developer Mode / Connectors), OpenAI Codex, Cursor, VS Code
+> - **Works with:** Claude (Desktop, Code, Web), ChatGPT (Apps / Plugins), OpenAI Codex, Cursor, VS Code
 > - **MCP Registry ID:** `io.github.magicSEO/eigenheim-mcp` ([official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers/io.github.magicSEO%2Feigenheim-mcp/versions/latest))
 > - **Live data page:** [eigenheim-invest.de/immobilienpreise-berlin/](https://eigenheim-invest.de/immobilienpreise-berlin/)
 
@@ -52,14 +52,16 @@ or in `~/.codex/config.toml`:
 url = "https://eigenheim-invest.de/mcp/"
 ```
 
-### ChatGPT (Developer Mode / Connectors)
+### ChatGPT (Apps / Plugins)
 
-1. Settings → **Apps & Connectors** → **Advanced settings** → enable **Developer mode**.
-2. **Create connector**:
+> Custom GPTs retire on 11 Dec 2026. This server is MCP-native, so it works as a ChatGPT app (plugin) without any extra API. Submission to the ChatGPT app directory: see [`chatgpt-app/SUBMISSION.md`](./chatgpt-app/SUBMISSION.md).
+
+1. Settings → **Apps** (or **Plugins**) → **Advanced settings** → enable **Developer mode**.
+2. **Create app**:
    - Name: `Eigenheim Invest Market`
    - MCP Server URL: `https://eigenheim-invest.de/mcp/`
    - Authentication: **No authentication**
-3. In a new chat, select the connector via **+ → Developer mode** and ask your question.
+3. In a new chat, select the app via **+ → Developer mode** and ask your question.
 
 ### Cursor (`.cursor/mcp.json`)
 
