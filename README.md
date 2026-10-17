@@ -14,7 +14,7 @@
 
 ## Contents
 
-1. [Quick start](#quick-start)
+1. [Quick start](#quick-start) · [Plugins](#plugins)
 2. [Screenshots](#screenshots)
 3. [What can you ask?](#what-can-you-ask)
 4. [Available tools](#available-tools)
@@ -57,6 +57,32 @@ or in `~/.codex/config.toml`:
 [mcp_servers.eigenheim]
 url = "https://eigenheim-invest.de/mcp/"
 ```
+
+---
+
+## Plugins
+
+This repository is also a ready-to-install plugin for **Claude Code** and **OpenAI Codex**. Both plugins connect to the same read-only MCP server and add the skill `berlin-market-data` (always quote source and date, never invent numbers).
+
+| | Claude Code plugin | Codex plugin |
+|---|---|---|
+| Manifest | [`.claude-plugin/plugin.json`](./.claude-plugin/plugin.json) | [`.codex-plugin/plugin.json`](./.codex-plugin/plugin.json) |
+| Marketplace | [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) | [awesome-codex-plugins](https://github.com/hashgraph-online/awesome-codex-plugins) (submitted) |
+| MCP config | [`.mcp.json`](./.mcp.json) | [`.mcp.json`](./.mcp.json) |
+| Skill | [`skills/berlin-market-data`](./skills/berlin-market-data/SKILL.md) | [`skills/berlin-market-data`](./skills/berlin-market-data/SKILL.md) |
+
+### Claude Code plugin
+
+```bash
+/plugin marketplace add magicSEO/eigenheim-mcp
+/plugin install eigenheim-market@eigenheim-invest
+```
+
+### Codex plugin
+
+Install from the [awesome-codex-plugins](https://github.com/hashgraph-online/awesome-codex-plugins) marketplace once listed, or clone this repository and add it as a local plugin in Codex. Quality check: HOL AI Plugin Scanner 3.49.0 – **100/100, no findings**.
+
+Security policy: [`SECURITY.md`](./SECURITY.md)
 
 ### ChatGPT (Apps / Plugins)
 
@@ -186,4 +212,4 @@ Methodology: [eigenheim-invest.de/immobilienpreise-berlin/#datenquellen](https:/
 
 ## License
 
-Documentation: CC BY 4.0. Data remains property of the respective sources.
+Plugin and configuration files: [MIT](./LICENSE). Documentation and market data: CC BY 4.0 (attribution: Eigenheim Invest). Data remains property of the respective sources.
