@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.magicSEO/eigenheim-mcp",
   "title": "Eigenheim Invest – Berlin Real Estate Market",
-  "description": "Live Berlin property prices per m², rental yields, land values 2026 and listings. Read-only.",
+  "description": "Daily €/m² for houses & apartments in all 97 Berlin localities + 12 districts, yields, land values.",
   "repository": { "url": "https://github.com/magicSEO/eigenheim-mcp", "source": "github" },
   "websiteUrl": "https://eigenheim-invest.de/immobilienpreise-berlin/",
   "version": "0.2.0",
